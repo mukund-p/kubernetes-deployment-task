@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kube-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-kube-app
+  template:
+    metadata:
+      labels:
+        app: my-kube-app
+    spec:
+      containers:
+      - name: my-kube-app
+        image: my-kube-app:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
